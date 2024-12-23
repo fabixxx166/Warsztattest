@@ -64,7 +64,11 @@
             background-attachment: fixed; /* Sekcje przewijają się szybciej niż tło */
             background-size: auto;
         }
-
+        @supports (-webkit-overflow-scrolling: touch) {
+            #services, #gallery, #contact, #pricing {
+                background-attachment: scroll;
+            }
+        }
         /* Stylizacja tabeli */
         .table-responsive {
             overflow-x: auto;
