@@ -75,6 +75,8 @@
         /* Galeria obrazów */
         #gallery .row {
             gap: 15px; /* Dodaje odstępy między obrazami */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
         }
 
         .gallery-image {
@@ -94,7 +96,7 @@
         @media (max-width: 768px) {
             #gallery .row {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(1, 1fr)
                 gap: 10px; /* Mniejsze odstępy na telefonach */
             }
             .gallery-image {
