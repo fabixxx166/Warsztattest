@@ -241,7 +241,26 @@
     </div>
 </section>
 
-
+section id="contact">
+    <div class="container">
+        <h2 class="text-center mb-4">Skontaktuj się z nami</h2>
+        <form action="send-mail.php" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Imię i nazwisko</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Twoje imię" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Twój email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Wiadomość</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Twoja wiadomość" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Wyślij</button>
+        </form>
+    </div>
+</section>
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 AutoFix. Wszystkie prawa zastrzeżone.</p>
