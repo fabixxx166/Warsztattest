@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFix - Parallax Scrolling</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/tlo.png') repeat fixed; /* Tło z efektem parallax */
+            color: #333;
+        }
+
+        /* Sekcje z przezroczystym tłem */
+        section {
+            background: rgba(255, 255, 255, 0.9); /* Lekko przezroczyste tło */
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+        }
+
+        /* Hero z większym odstępem */
+        header.hero {
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            background: url('/background.png') no-repeat center center;
+            background-size:cover;
+            background-attachment:local; /* Parallax dla hero */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header.hero h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Ogólne style przycisków */
+        .btn-primary {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        /* Efekt parallax dla kolejnych sekcji */
+        #services, #gallery, #contact, #pricing {
+            background-attachment: fixed; /* Sekcje przewijają się szybciej niż tło */
+            background-size: auto;
+        }
+
+        /* Stylizacja tabeli */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table thead th {
+            text-align: center;
+            vertical-align: middle;
+            background-color: #343a40;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .table td, .table th {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* Marginesy i odstępy na małych ekranach */
+        @media (max-width: 768px) {
+            header.hero {
+                padding: 50px 10px;
+            }
+
+            section {
+                margin: 20px 10px;
+            }
+
+            #pricing {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <h1 class="display-4">AutoFix - Profesjonalny warsztat samochodowy</h1>
+        <p class="lead">Zaufaj specjalistom od Twojego auta. Fachowo i terminowo.</p>
+        <a href="#contact" class="btn btn-primary btn-lg">Skontaktuj się z nami</a>
+        <a href="#services" class="btn btn-primary btn-lg">Nasze usługi</a>
+        <a href="#gallery" class="btn btn-primary btn-lg">Galeria</a>
+        <a href="#pricing" class="btn btn-primary btn-lg">Cennik</a> <!-- Nowy przycisk -->
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="text-center mb-4">Nasze usługi</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3 class="card-title">Diagnostyka</h3>
+                        <p class="card-text">Zaawansowana diagnostyka komputerowa Twojego pojazdu.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3 class="card-title">Naprawa silników</h3>
+                        <p class="card-text">Kompleksowa naprawa silników benzynowych i diesla.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <h3 class="card-title">Wymiana opon</h3>
+                        <p class="card-text">Szybka i bezpieczna wymiana opon oraz ich wyważanie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="text-center mb-4">Cennik</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Usługa</th>
+                            <th scope="col">Opis</th>
+                            <th scope="col">Cena</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Diagnostyka komputerowa</td>
+                            <td>Pełna diagnostyka systemów pojazdu</td>
+                            <td>200 PLN</td>
+                        </tr>
+                        <tr>
+                            <td>Wymiana opon</td>
+                            <td>Kompleksowa wymiana opon z wyważaniem</td>
+                            <td>100 PLN</td>
+                        </tr>
+                        <tr>
+                            <td>Naprawa silnika</td>
+                            <td>Naprawa i regeneracja układów silnika</td>
+                            <td>500 PLN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="text-center mb-4">Galeria</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://via.placeholder.com/400" alt="Warsztat - Diagnostyka" class="img-fluid gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://via.placeholder.com/400" alt="Warsztat - Naprawa silników" class="img-fluid gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal2">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://via.placeholder.com/400" alt="Warsztat - Wymiana opon" class="img-fluid gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modale dla zdjęć -->
+        <!-- Modal 1 -->
+        <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModal1Label">Warsztat - Diagnostyka</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="https://via.placeholder.com/400" alt="Warsztat - Diagnostyka" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModal2Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModal2Label">Warsztat - Naprawa silników</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="https://via.placeholder.com/400" alt="Warsztat - Naprawa silników" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModal3Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModal3Label">Warsztat - Wymiana opon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="https://via.placeholder.com/400" alt="Warsztat - Wymiana opon" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <h2 class="text-center mb-4">Skontaktuj się z nami</h2>
+        <form action="send-mail.php" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Imię i nazwisko</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Twoje imię" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Twój email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Wiadomość</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Twoja wiadomość" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Wyślij</button>
+        </form>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AutoFix. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
